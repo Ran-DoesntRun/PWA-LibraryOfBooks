@@ -5,11 +5,12 @@ const CACHE_ASSETS = [
     '/jquery.js',
     '/jquery-script.js',
     '/style.css',
-    '/images/lobLogo.png',
+    '/images/bruh.png',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
 ];
 
+// Install Service Worker - Cache important assets
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -19,6 +20,7 @@ self.addEventListener('install', (event) => {
     self.skipWaiting();
 });
 
+// Activate Service Worker - Clean up old caches
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {

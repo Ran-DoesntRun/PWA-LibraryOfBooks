@@ -38,7 +38,12 @@ function showdatas() {
                         cache.put(apiUrl, new Response(JSON.stringify(response)));
                     });
                 }
+            } else {
+                $('#buku').html('<p class="text-danger">Buku tidak ditemukan.</p>');
             }
+        },
+        error: function () {
+            $('#buku').html('<p class="text-danger">Terjadi kesalahan saat mengambil data. Coba lagi nanti.</p>');
         },
     });
 }
@@ -138,7 +143,6 @@ jQuery(function () {
                     let buku = response.works;
 
                     $.each(buku, function (i, data) {
-                        console.log(data);
                         let textContent = data.authors && data.authors[0]?.name
                             ? data.authors[0].name
                             : "Information not available";
