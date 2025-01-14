@@ -36,14 +36,14 @@
   ],
   "screenshots": [
     {
-     "src": "images/bruh.png",
+     "src": "images/lobLogo.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Library Of Books"
     },
     {
-      "src": "images/bruh.png",
+      "src": "images/lobLogo.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",
