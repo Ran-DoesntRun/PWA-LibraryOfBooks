@@ -114,6 +114,7 @@ function modalFunc(bookKey) {
 }
 
 jQuery(function () {
+    alert("Hi, this is Evan Febrian. If you're my lecturer, this is not the page to be graded (at least not yet). I made this one in 4th semester. The one to be graded is different one, its on project in navigation bar, it has different UI from this one and that one that is the one I submit. Thank You. If you're not my lecturer (or at least not the one who graded my assignment) here's my project");
     const subject = {
         "Romansa": "romance",
         "Fiksi": "fiction",
