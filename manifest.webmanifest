@@ -1,0 +1,32 @@
+{
+  "name": "Library Of Books",
+  "short_name": "LoB",
+  "theme_color": "#332D2D",
+  "background_color": "#332D2D",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "img/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+     "src": "img/bruh.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Library Of Books"
+    },
+    {
+      "src": "img/bruh.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Library Of Books"
+    }
+  ]
+}

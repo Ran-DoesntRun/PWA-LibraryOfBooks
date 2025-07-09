@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <script src="./jquery-script.js" defer></script>
+  <script src="./sc_jq.js" defer></script>
+  <title>Library Of Books</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const searchque = params.get('search');
+  </script>
+</head>
+
+<body class="bg-gray-900">
+  <div class="bg-gray-900 min-h-screen text-white">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 py-3" style="background-color: #212529;">
+      <div class="flex items-center space-x-2">
+        <!-- Logo Placeholder -->
+        <a href="index.html"><img src="./img/bruh.png" alt="Library Logo" class="w-16 h-16"></a>
+        <a href="index.html"><span class="text-white text-lg font-semibold">Library of Books</span></a>
+
+      </div>
+    </header>
+
+    <!-- Search -->
+    <div class="p-4">
+      <div class="flex space-x-2">
+        <input type="text" id="cari-buku" placeholder="Search" value=""
+          class="flex-1 px-3 py-2 rounded-md border border-gray-300 text-white" />
+        <button type="submit" id="cari-bk" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+          Search
+        </button>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="space-y-6 px-4 pb-6">
+      <div class="bg-gray-100 rounded-lg p-3 text-black ">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-semibold uppercase">
+            <script>document.write(searchque)</script>
+          </span>
+        </div>
+        <div id="search" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              let container = document.querySelector('#search');
+              search(searchque, container);
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
