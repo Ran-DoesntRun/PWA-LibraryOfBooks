@@ -9,24 +9,28 @@
   <script src="./sc_jq.js" defer></script>
   <title>Library Of Books</title>
   <script>
+    // Script untuk mengambil parameter yang disertakan pada url
     const params = new URLSearchParams(window.location.search);
     const genre = params.get('genre');
   </script>
 </head>
+<!-- Membuat body dengan warna gray -->
 
 <body class="bg-gray-900">
+  <!-- Membuat div dengan warna beckground gray, minimal tinggi div 100vh, dan membuat text didalamnya putih -->
   <div class="bg-gray-900 min-h-screen text-white">
-    <!-- Header -->
+    <!-- Membuat header dengan display flex, align items ditengah dan terdapat jarak diantara items, serta padding header -->
     <header class="flex items-center justify-between px-4 py-3" style="background-color: #212529;">
+      <!-- Membuat div dengan display flex, align items ditengah, dan terdapat space diantara item dalam 1 row -->
       <div class="flex items-center space-x-2">
-        <!-- Logo Placeholder -->
+        <!-- Foto logo dengan tinggi dan lebar 4rem-->
         <a href="index.html"><img src="./img/bruh.png" alt="Library Logo" class="w-16 h-16"></a>
         <a href="index.html"><span class="text-white text-lg font-semibold">Library of Books</span></a>
 
       </div>
     </header>
 
-    <!-- Search -->
+    <!-- Membuat div yang berisi input dan tombol untuk melakukan pencarian buku -->
     <div class="p-4">
       <div class="flex space-x-2">
         <input type="text" id="cari-buku" placeholder="Search" value=""
@@ -37,8 +41,7 @@
       </div>
     </div>
 
-    <div class=""></div>
-    <!-- Categories -->
+    <!-- Membuat div berisi buku dalam 1 genre yang sama dengan adanya jarak antara item pada sumbu y, dan padding kiri dan kanan serta padding bawah -->
     <div class="space-y-6 px-4 pb-6">
       <div class="bg-gray-100 rounded-lg p-3 text-black ">
         <div class="flex justify-between items-center mb-2">
@@ -48,6 +51,8 @@
         </div>
         <div id="genre" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
           <script>
+            // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku.
+            // Buku dapat berasal dari cache atau diambil menggunakan api
             document.addEventListener('DOMContentLoaded', function () {
               let container = document.querySelector('#genre');
               showFullGenre(genre, container, 1);

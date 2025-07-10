@@ -3,29 +3,39 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Implementasi Penggunaan Meta Viewport-->
+  <!-- Penggunaan meta description untuk membuat SEO yang bagus -->
   <meta name="description"
     content="A website that allow user to find a book, this website made by Evan Febrian as a Final Semester Project for Class Web Mobile Programming. This Is The Landpage">
+
   <link href="./src/output.css" rel="stylesheet">
+  <!-- Menghubungkan script dengan file css yang digenerate oleh tailwind -->
+  <!-- Menghubungkan script deng script css swiperjs -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="jquery-script.js" defer></script>
   <script src="sc_jq.js" defer></script>
+  <!-- Menghubungkan script dengan file manifest -->
   <link rel="manifest" href="manifest.webmanifest">
   <title>Library Of Books</title>
 </head>
 
+<!-- Membuat body berwarna 212529  -->
+
 <body class="bg-bg">
+  <!-- Membuat div dengan warna beckground gray, minimal tinggi div 100vh, dan membuat text didalamnya putih -->
   <div class="bg-gray-900 min-h-screen text-white">
-    <!-- Header -->
+    <!-- Membuat header dengan display flex, align items ditengah dan terdapat jarak diantara items, serta padding header -->
     <header class="flex items-center justify-between px-4 py-3" style="background-color: #212529;">
+      <!-- Membuat div dengan display flex, align items ditengah, dan terdapat space diantara item dalam 1 row -->
       <div class="flex items-center space-x-2">
-        <!-- Logo Placeholder -->
+        <!-- Foto logo dengan tinggi dan lebar 4rem-->
         <img src="./img/bruh.png" alt="Library Logo" class="w-16 h-16">
+        <!-- Membuat span judul web dengan huruf putih ukuran large dan memiliki style semibold -->
         <span class="text-white text-lg font-semibold">Library of Books</span>
       </div>
     </header>
 
-    <!-- Search -->
+    <!-- Membuat div yang berisi input dan tombol untuk melakukan pencarian buku -->
     <div class="p-4">
       <div class="flex space-x-2">
         <input type="text" id="cari-buku" placeholder="Search" value=""
@@ -36,17 +46,22 @@
       </div>
     </div>
 
-    <!-- Categories -->
+    <!-- Membuat div berisi buku dalam beberapa kategori dengan adanya jarak antara item pada sumbu y, dan padding kiri dan kanan serta padding bawah -->
     <div class="space-y-6 px-4 pb-6">
-      <!-- Category: Romance -->
-      <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px] ">
+      <!-- Membuat div berisi buku buku kategori romance -->
+      <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Romance</span>
+
+          <!-- Membuat sebuah link untuk menuju kehalaman genre dengan membawa data genre yang akan di tampilkan, 
+           Style yang digunakan adalah small text, berwarna gray dan ketika melakukan hover, maka warnanya berubah menjadi gray tetapi lebih gelap -->
           <a href="genre.html?genre=romance" class="text-sm text-gray-600 hover:text-gray-800">See More</a>
         </div>
+        <!-- Membuat div berisi carousel slide / item bergerak otomatis dengan menggunakan library swiperjs -->
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="romance">
             <script>
+              // script untuk memanggil fungsi dan 
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#romance');
                 showGenre('romance', container);
@@ -57,11 +72,14 @@
       </div>
 
       <!-- Category: Coding -->
+      <!-- Membuat div berisi buku buku kategori romance -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Coding</span>
+          <!-- Membuat sebuah link untuk menuju kehalaman genre dengan membawa data genre yang akan di tampilkan, Style yang digunakan adalah small text, berwarna gray dan ketika melakukan hover, maka warnanya berubah menjadi gray tetapi lebih gelap -->
           <a href="genre.html?genre=programming" class="text-sm text-gray-600 hover:text-gray-800">See More</a>
         </div>
+        <!-- Membuat div berisi carousel slide / item bergerak otomatis dengan menggunakan library swiperjs -->
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="coding">
             <script>
@@ -75,11 +93,14 @@
       </div>
 
       <!-- Category: Comedy -->
+      <!-- Membuat div berisi buku buku kategori romance -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Comedy</span>
+          <!-- Membuat sebuah link untuk menuju kehalaman genre dengan membawa data genre yang akan di tampilkan, Style yang digunakan adalah small text, berwarna gray dan ketika melakukan hover, maka warnanya berubah menjadi gray tetapi lebih gelap -->
           <a href="genre.html?genre=humor" class="text-sm text-gray-600 hover:text-gray-800">See More</a>
         </div>
+        <!-- Membuat div berisi carousel slide / item bergerak otomatis dengan menggunakan library swiperjs -->
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="comedy">
             <script>
@@ -93,11 +114,14 @@
       </div>
 
       <!-- Horror -->
+      <!-- Membuat div berisi buku buku kategori romance -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Horror</span>
+          <!-- Membuat sebuah link untuk menuju kehalaman genre dengan membawa data genre yang akan di tampilkan, Style yang digunakan adalah small text, berwarna gray dan ketika melakukan hover, maka warnanya berubah menjadi gray tetapi lebih gelap -->
           <a href="genre.html?genre=horror" class="text-sm text-gray-600 hover:text-gray-800">See More</a>
         </div>
+        <!-- Membuat div berisi carousel slide / item bergerak otomatis dengan menggunakan library swiperjs -->
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="horror">
             <script>
@@ -111,11 +135,14 @@
       </div>
 
       <!-- Fiction -->
+      <!-- Membuat div berisi buku buku kategori romance -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Fiction</span>
+          <!-- Membuat sebuah link untuk menuju kehalaman genre dengan membawa data genre yang akan di tampilkan, Style yang digunakan adalah small text, berwarna gray dan ketika melakukan hover, maka warnanya berubah menjadi gray tetapi lebih gelap -->
           <a href="genre.html?genre=fiction" class="text-sm text-gray-600 hover:text-gray-800">See More</a>
         </div>
+        <!-- Membuat div berisi carousel slide / item bergerak otomatis dengan menggunakan library swiperjs -->
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="fiction">
             <script>

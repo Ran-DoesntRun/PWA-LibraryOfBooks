@@ -1,7 +1,7 @@
 // Menyimpan nama cache kedalam variabel
 const CACHE_NAME = "lob-cache-1";
 const cache_genre_2 = "genre-cache-v1";
-// Menyimpan data / file yang akan dicache kedalam variabel
+// Menyimpan data / file static yang akan dicache kedalam variabel
 const CACHE_ASSETS = [
   "/",
   "index.html",
@@ -21,7 +21,7 @@ const CACHE_ASSETS = [
 ];
 
 
-// Install Service Worker - Cache important assets
+// Script untuk menginstall service worker, dan ketika terinstall, file - file yang sudah di taruh dalam variabel CACHE_ASSETS disimpan pada cache bernama lob-cache-v1
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -31,7 +31,7 @@ self.addEventListener('install', (event) => {
     self.skipWaiting();
 });
 
-// Activate Service Worker - Clean up old caches
+// Script untuk mengaktifkan servis worker dan ketika telah diaktifkan, akan menghapus semua cache kecuali cache yang bernama genre-cache-v1 dan lob-cache-1
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -45,31 +45,22 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-
+// Script untuk melakukan fetch data dari cache jika ada 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.match(event.request).then((cachedResponse) => {
+    caches.open(CACHE_NAME).then((cache) => { // Cache lob-cache-1 dibuka
+      return cache.match(event.request).then((cachedResponse) => { //Mengambil data dari cache lob-cache-1 dengan request yang sesuai
         if (cachedResponse) {
-          console.log(`[SW] Serving from ${CACHE_NAME}: ${event.request.url}`);
-          return cachedResponse;
+          return cachedResponse; //Mengembalikan data dari cache jika ada
         } else {
-          console.log(`[SW] Not in ${CACHE_NAME}, fetching: ${event.request.url}`);
+          //Mengambil data dari internet jika tidak ada pada cache
           return fetch(event.request).then((networkResponse) => {
-            // Optionally: cache new responses in lob-cache-1
             if (networkResponse.ok) {
-              cache.put(event.request, networkResponse.clone());
-              console.log(`[SW] Cached in ${CACHE_NAME}: ${event.request.url}`);
+              cache.put(event.request, networkResponse.clone()); //Menyimpan data yang diambil dari internet ke dalam cache lob-cache-1
             }
             return networkResponse;
           });
         }
-      });
-    }).catch((err) => {
-      console.error(`[SW] Error in ${CACHE_NAME} fetch:`, err);
-      return new Response('Offline and resource not cached in lob-cache-1.', {
-        status: 503,
-        statusText: 'Service Unavailable'
       });
     })
   );
