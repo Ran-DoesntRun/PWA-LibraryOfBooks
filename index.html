@@ -19,7 +19,7 @@
   <title>Library Of Books</title>
 </head>
 
-<!-- Membuat body berwarna 212529  -->
+<!-- Membuat body berwarna #212529  -->
 
 <body class="bg-bg">
   <!-- Membuat div dengan warna beckground gray, minimal tinggi div 100vh, dan membuat text didalamnya putih -->
@@ -61,7 +61,8 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="romance">
             <script>
-              // script untuk memanggil fungsi dan 
+              // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku. 
+              // Buku dapat berasal dari cache atau diambil menggunakan api
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#romance');
                 showGenre('romance', container);
@@ -72,7 +73,7 @@
       </div>
 
       <!-- Category: Coding -->
-      <!-- Membuat div berisi buku buku kategori romance -->
+      <!-- Membuat div berisi buku buku kategori programming -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Coding</span>
@@ -83,6 +84,8 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="coding">
             <script>
+              // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku. 
+              // Buku dapat berasal dari cache atau diambil menggunakan api
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#coding');
                 showGenre('programming', container);
@@ -93,7 +96,7 @@
       </div>
 
       <!-- Category: Comedy -->
-      <!-- Membuat div berisi buku buku kategori romance -->
+      <!-- Membuat div berisi buku buku kategori humor -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Comedy</span>
@@ -104,6 +107,8 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="comedy">
             <script>
+              // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku. 
+              // Buku dapat berasal dari cache atau diambil menggunakan api
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#comedy');
                 showGenre('humor', container);
@@ -114,7 +119,7 @@
       </div>
 
       <!-- Horror -->
-      <!-- Membuat div berisi buku buku kategori romance -->
+      <!-- Membuat div berisi buku buku kategori horror -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Horror</span>
@@ -125,6 +130,8 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="horror">
             <script>
+              // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku. 
+              // Buku dapat berasal dari cache atau diambil menggunakan api
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#horror');
                 showGenre('horror', container);
@@ -135,7 +142,7 @@
       </div>
 
       <!-- Fiction -->
-      <!-- Membuat div berisi buku buku kategori romance -->
+      <!-- Membuat div berisi buku buku kategori fiksi -->
       <div class="bg-gray-100 rounded-lg p-3 text-black min-h-[200px]">
         <div class="flex justify-between items-center mb-2">
           <span class="font-semibold uppercase">Fiction</span>
@@ -146,6 +153,8 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper" id="fiction">
             <script>
+              // Script untuk memanggil fungsi yang akan menampilkan beberapa div berisi buku. 
+              // Buku dapat berasal dari cache atau diambil menggunakan api
               document.addEventListener('DOMContentLoaded', function () {
                 let container = document.querySelector('#fiction');
                 showGenre('fiction', container);
@@ -156,11 +165,13 @@
       </div>
     </div>
   </div>
+  <!-- script untuk menghubungkan dengan library swiperjs dengan menggunakan cdn -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer>
+    // membuat instance dari class Swiper yang berisi konfigurasi dari carousel slide /swiper slide yang dibuat
     var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 30,
-      slidesPerView: 1,
+      spaceBetween: 30, // Antara tiap slide terdapat space
+      slidesPerView: 1, // Hanya 1 slide yang ditampilkan dilayar
       grabCursor: false,
       loop: document.querySelectorAll(".swiper-slide").length > 1,
       autoplay: {
@@ -169,23 +180,24 @@
       },
       breakpoints: {
         620: {
-          slidesPerView: 2
+          slidesPerView: 2 // Ketika layar memiliki lebar lebih dari 620px slide yang ditampilkan adalah 2
         },
         900: {
-          slidesPerView: 3
+          slidesPerView: 3 // Ketika layar memiliki lebar lebih dari 900px slide yang ditampilkan adalah 3
         },
         1024: {
-          slidesPerView: 4
+          slidesPerView: 4 // Ketika layar memiliki lebar lebih dari 1024 slide yang ditampilkan adalah 2
         }
       },
     });
   </script>
+  <!-- Script untuk mendaftarkan service worker dengan nama sw.js -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(() => {
-        console.log('Service worker registered!');
+        console.log('terdaftar');
       }).catch((error) => {
-        console.warn('Error registering service worker:');
+        console.warn('Error :');
         console.warn(error);
       });
     }
